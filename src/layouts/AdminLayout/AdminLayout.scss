@@ -1,0 +1,40 @@
+@import "~/src/scss/index.scss";
+
+
+$widthLeftMenu :195px;
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: $background-grey;
+
+
+    &__left {
+        background-color: $primary-gray;
+        width: $widthLeftMenu;
+        .logo{
+            height: 240px;
+            width: "100%";
+            margin: 10px 0;
+        }
+    }
+
+    &__right{
+        width: calc(100% - $widthLeftMenu);
+
+        &-header{
+            background-color: $primary-gray;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 20px;
+        }
+        
+        &-content {
+            position: relative;
+            margin: 20px;
+        }
+    }
+}

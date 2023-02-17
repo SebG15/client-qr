@@ -1,0 +1,43 @@
+@import "~/src/scss/index.scss";
+
+
+.auth{
+    background-color: #ffffff;
+    
+    min-height: 100vh;
+    background-position: center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+    
+    .logo{
+        border: 2px solid $border-yellow;
+        border-radius: 70px 10px;
+        width: 187px;
+        margin-bottom: 40px;
+        
+    }
+
+    &__forms {
+        width: 280px;
+        .ui.menu{
+            .item{
+                width: 50%;
+                justify-content: center;
+                background-color: rgba(37, 42, 55, 0.473) !important;
+                border-radius: 0 !important;
+                border-top: 4px solid $border-yellow !important;
+                font-size: 18;
+                
+            &.active{
+                font-weight: normal;
+                border-radius: 0% !important;
+                border-top-color: $primary-yellow !important ;
+            }
+            }
+        }
+
+    }
+}
