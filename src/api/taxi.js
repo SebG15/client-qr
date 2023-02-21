@@ -21,4 +21,112 @@ export class Taxi{
             throw error 
         }
     }
+
+    async createTaxi(accessToken, data){
+        try {
+            
+            const formData =  new FormData();
+            Object.keys(data).forEach((key)=>{
+                formData.append(key,data[key])
+            })
+
+            if(data.fileFoto){
+                formData.append("foto",data.fileFoto)
+            }
+
+            const url = `${this.basiApi}/${ENV.API_ROUTES.TAXI}`
+            const params = {
+                method : "POST",
+                headers:{
+                    Authorization : `Bearer ${accessToken}`
+                }
+                ,
+                body: formData,
+            }
+
+            const response = await fetch(url,params)
+            const result = await response.json()
+
+            if(response.status !== 200) throw result;
+
+            return result
+
+        } catch (error) {
+            throw error
+        }
+    }
+
+    async updateTaxi(accessToken,idTaxi,taxiData){
+        try {
+            const data = taxiData
+            const formData =  new FormData();
+            Object.keys(data).forEach((key)=>{
+                formData.append(key,data[key])
+            })
+
+            if(data.fileFoto){
+                formData.append("foto",data.fileFoto)
+            }
+
+            const url= `${ENV.BASE_API}/${ENV.API_ROUTES.TAXI}/${idTaxi}`
+            const params ={
+                method: "PATCH",
+                headers:{
+                    Authorization:`Bearer ${accessToken}`
+                },
+                body: formData
+            };
+
+
+            const response = await fetch(url,params);
+            const result = await response.json();
+
+
+            if(response.status !== 200)  throw result;
+            return result;
+
+
+            
+        } catch (error) {
+            throw error
+            
+        }
+    }
+
+    async deleteTaxi(accessToken,idTaxi){
+        try {
+
+            const url = `${this.basiApi}/${ENV.API_ROUTES.TAXI}/${idTaxi}`;
+            const params ={
+                method : "DELETE",
+                headers: {
+                Authorization: `Bearer ${accessToken}`
+                }
+
+            }
+            const response = await fetch(url,params);
+            const result = await response.json();
+
+            if(response.status !== 200 ) throw result;
+            return result ;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async getTaxi (path){
+        try {
+            const url =`${this.basiApi}/${ENV.API_ROUTES.TAXI}/${path}`;
+
+            const response = await fetch(url);
+
+            const result = await response.json();
+
+            if(response.status !==200) throw result
+            return result
+            
+        } catch (error) {
+            throw error
+        }
+    }
 }

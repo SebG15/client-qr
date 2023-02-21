@@ -1,11 +1,10 @@
 import React from 'react'
+import {Banner} from "../../../components/Web"
 
 export  function Home() {
   return (
     <div>
-        <h1>
-            Estamos en la home de la web
-        </h1>
+        <Banner/>
     </div>
   )
 }

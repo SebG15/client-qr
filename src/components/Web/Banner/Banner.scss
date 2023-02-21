@@ -1,0 +1,40 @@
+@import "~/src/scss/index.scss";
+
+.banner{
+    height: 620px;
+    background-image: url("../../../assets/jpg/banner.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-repeat:no-repeat ;
+    position: relative;
+
+    .ui.button{
+       margin-top: 40px;
+       margin-left: 10%;
+    }
+
+    .container{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        
+
+        
+    }
+
+    h1{
+        color: $text-light;
+        font-size: 50px;
+        line-height: 45px;
+    }
+
+    h2{
+        color: $text-light;
+        font-size: 30px;
+        line-height: 45px;
+
+    }
+
+}

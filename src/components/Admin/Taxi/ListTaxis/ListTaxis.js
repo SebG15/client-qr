@@ -8,7 +8,8 @@ import "./ListTaxis.scss"
 
 const taxiController = new Taxi()
 
-export  function ListTaxis() {
+export  function ListTaxis(props) {
+    const {reload,onReload } = props;
     const [taxis, setTaxis] = useState(null);
     const [page, setPage] = useState(1)
     const [pagination, setPagination] = useState(null)
@@ -17,7 +18,7 @@ export  function ListTaxis() {
     useEffect( () => {
         (async () =>{
             try {
-                const response = await taxiController.getTaxis(page,10);
+                const response = await taxiController.getTaxis(page);
                 
                 
                 setTaxis(response.docs);
@@ -32,7 +33,7 @@ export  function ListTaxis() {
             }
         })();
       
-    }, [page]);
+    }, [page,reload]);
 
     const changePage= (_, data) => {
         setPage(data.activePage)
@@ -44,7 +45,7 @@ export  function ListTaxis() {
   return (
     <div className='list-taxis'>
         {map(taxis, (taxi)=> (
-            <TaxiItem  key ={taxi._id} taxi={taxi}/>
+            <TaxiItem  key ={taxi._id} taxi={taxi} onReload={onReload}  />
         ) )}
         <div className='list-taxis__pagination'>
             <Pagination 

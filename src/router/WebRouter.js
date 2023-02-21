@@ -1,20 +1,21 @@
 import React from 'react'
 import {Routes, Route} from "react-router-dom"
 import {ClientLayout} from "../layouts/ClientLayout"
-import {Home,Contact, Taxis} from "../pages/web"
+import {Home, Taxi} from "../pages/web"
 
 export  function WebRouter() {
   const loadLayout = (Layout,Page)=>{
-    return <Layout>
+    return (
+    <Layout>
       <Page/>
-    </Layout>
+    </Layout>);
   }
 
   return (
     <Routes>        
         <Route path='/' element={loadLayout(ClientLayout,Home)}/>
-        <Route path='/contacto' element={loadLayout(ClientLayout,Contact)}/>
-        <Route path='/taxi/:path' element={loadLayout(ClientLayout,Taxis)}/>
+        
+        <Route path='/taxi/:path' element={loadLayout(ClientLayout,Taxi)}/>
     </Routes>
     
   );

@@ -9,14 +9,19 @@ import "./Taxi.scss"
 export  function Taxi() {
 
   const [showModal, setShowModal] = useState(false)
+
+  const [reload, setReload] = useState(false)
+
   const onOpenCloseModal = () =>setShowModal((prevState)=> !prevState)
+
+  const onReload = () => setReload((prevState) => !prevState)
 
   const panes = [
     {
       
       render: () => (
         <Tab.Pane attached={false}>
-          <ListTaxis/>
+          <ListTaxis reload={reload} onReload={onReload} />
         </Tab.Pane>
       ),
     },
@@ -39,7 +44,7 @@ export  function Taxi() {
             
         </div>
         <BasicModal show={showModal} close={onOpenCloseModal} title =" Crear Nuevo Taxi">
-          <TaxiForm/>
+          <TaxiForm onClose={onOpenCloseModal} onReload={onReload}/>
         </BasicModal>
     </>
   )

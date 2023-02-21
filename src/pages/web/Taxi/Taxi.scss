@@ -1,0 +1,20 @@
+@import "~/src/scss/index.scss";
+
+.taxi{
+    margin-bottom: 50px;
+
+    &__info{
+        color: $text-light;
+        font-family: sans-serif;
+        margin-bottom: 20px;
+
+    }
+
+    .ui.image{
+        border: 2px dashed yellow;
+        border-radius: 70px 10px;
+        margin-bottom: 40px;
+        height: 250px;
+        
+    }
+}

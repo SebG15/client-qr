@@ -1,0 +1,23 @@
+@import "~/src/scss/index.scss";
+
+.footer-info{
+
+    
+    color: $text-light;
+    
+
+    .logo{
+       
+        height: 50px;
+        background-image: url(../../../../assets/png/Logo.png);
+        background-position: left;
+        background-repeat:no-repeat ;
+        
+
+        
+    }
+    p{
+        opacity: 0.6;
+        margin: 0 0;
+    }
+}
