@@ -2,6 +2,8 @@ import React from 'react'
 import {Form, Button} from "semantic-ui-react"
 import {useFormik} from "formik"
 import {Auth} from "../../../../api"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {useAuth} from "../../../../hooks"
 import {initialValues, validationSchema} from "./LoginForm.form"
 
@@ -9,6 +11,12 @@ import {initialValues, validationSchema} from "./LoginForm.form"
 const authContoller = new Auth ();
 
 export function LoginForm() {
+
+    const notify = () => toast.error("No se puede acceder",{
+        position: "top-center",
+        autoClose: 3000,
+        pauseOnHover: false,
+    })
 
     const {login} = useAuth();
 
@@ -25,7 +33,10 @@ export function LoginForm() {
                 login(response.access)
                 
             } catch (error) {
+                
                 console.log(error)
+                notify()
+                
                 
             }
         }
@@ -33,6 +44,7 @@ export function LoginForm() {
 
   return (
     <div>
+
         <Form className='register-form' onSubmit={formik.handleSubmit} >
             <Form.Input name="email" placeholder ="Correo Eletronico"
             onChange={formik.handleChange} value = {formik.values.email}
@@ -42,11 +54,13 @@ export function LoginForm() {
             onChange={formik.handleChange} value = {formik.values.password}
             error={formik.errors.password}
              />
+             
              <Button inverted color="yellow" type= "submit" fluid loading={formik.isSubmitting} >
                 Entrar
             </Button>
            
         </Form>
+        <ToastContainer/>
     </div>
   )
 }

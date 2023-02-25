@@ -1,5 +1,4 @@
 import React from 'react'
-import {Icon} from "../../../../assets"
 import "./info.scss"
 
 export function Info() {

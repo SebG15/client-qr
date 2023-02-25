@@ -1,6 +1,8 @@
 @import "~/src/scss/index.scss";
 
-.taxi{
+.taxi{   
+
+    
     margin-bottom: 50px;
 
     &__info{
@@ -9,6 +11,15 @@
         margin-bottom: 20px;
 
     }
+    .ui.container{
+        width: 100%;
+    }
+
+    .ui.table{
+        justify-items: center;
+        width: 100%;
+        height: 100px;
+    }
 
     .ui.image{
         border: 2px dashed yellow;
@@ -16,5 +27,8 @@
         margin-bottom: 40px;
         height: 250px;
         
+    }
+    h1{
+        width: 100%;
     }
 }

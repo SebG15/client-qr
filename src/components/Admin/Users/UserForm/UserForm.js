@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react'
-import {Form, Image, Button} from "semantic-ui-react"
+import {Form, Image} from "semantic-ui-react"
 import {useFormik} from "formik"
 import {useDropzone} from "react-dropzone"
 import {image} from "../../../../assets"

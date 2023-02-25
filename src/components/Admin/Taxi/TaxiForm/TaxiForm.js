@@ -7,12 +7,20 @@ import {image} from "../../../../assets"
 import{useAuth} from "../../../../hooks"
 import {Taxi} from "../../../../api"
 import {ENV} from "../../../../utils"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {initialValues, validationSchema} from "./TaxiForm.form"
 
 const taxiContoller  = new Taxi();
 
 export  function TaxiForm(props) {
 
+  
+  const notify = () => toast.success("Exitoooooo",{
+    position: "top-center",
+    autoClose: 3000,
+    pauseOnHover: false,
+})
   const{onClose, onReload, taxi} = props
   const {accessToken} = useAuth()
 
@@ -23,14 +31,24 @@ export  function TaxiForm(props) {
     onSubmit: async (formValue) => {
 
       try {
+        
         if(taxi){
           await taxiContoller.updateTaxi(accessToken,taxi._id,formValue)
+          
+                    
+
         } else{
           await taxiContoller.createTaxi(accessToken,formValue)
         }
-      
-        onReload()
+        
+        
+        onReload()  
+       
+        
         onClose()
+        
+        
+        
         
       } catch (error) {
         console.error(error)
@@ -55,7 +73,7 @@ export  function TaxiForm(props) {
     } else if(formik.values.foto){
       return `${ENV.BASE_PATH}/${formik.values.foto}`
     }
-    return image.noAvatar
+    return image.noFoto
   }
 
   
@@ -89,12 +107,16 @@ export  function TaxiForm(props) {
         onChange={(_,data)=>formik.setFieldValue("activo", data.value)} 
         value={formik.values.activo} error={formik.errors.activo} />
 
-        <Form.Button  color="yellow" type= "submit" fluid loading={formik.isSubmitting}  >
+        <Form.Button  color="yellow" type= "submit" fluid loading={formik.isSubmitting}   >
+
               {taxi?"Actualizar Taxi":"Crear Taxi"}
                
             </Form.Button>
+            <ToastContainer/>
+            
 
     </Form>
+    
   )
 }
 
