@@ -37,7 +37,7 @@ export  function Taxi() {
   return (
     <Container className='taxi'>
         <h1 className='taxi__info'>
-           INORMACION DEL CONDUCTOR Y VEHICULO
+           INFORMACIÓN DEL CONDUCTOR Y VEHÍCULO
         </h1>
         <Image src={`${ENV.BASE_PATH}/${taxi.taxiStored.foto}`}/>
         

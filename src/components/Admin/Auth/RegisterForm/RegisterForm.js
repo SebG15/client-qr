@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import {Form,  Button } from "semantic-ui-react"
 import  {Auth} from "../../../../api"
 import {useFormik} from "formik"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {initialValues,validationSchema} from "./RegisterForm.form"
 import "./ResgisterForm.scss"
 
@@ -9,6 +11,11 @@ const authController = new Auth()
 
 export  function RegisterForm(props) {
     const {openLogin} = props;
+    const notify = () => toast.error("No se puede crear el usuario.",{
+        position: "top-center",
+        autoClose: 3000,
+        pauseOnHover: false,
+    })
     const [error, setError] = useState("")
 
     const formik = useFormik({
@@ -21,7 +28,8 @@ export  function RegisterForm(props) {
                 await authController.register(formValue)
                 openLogin();                
             } catch (error) {
-                setError("Error en el servidor");              
+                notify()
+                //setError("Error en el servidor");              
             }
         },
     });
@@ -49,6 +57,7 @@ export  function RegisterForm(props) {
             <p className="register-form__error">
                {error}
             </p>
+            <ToastContainer/>
         </Form>
     </div>
   )

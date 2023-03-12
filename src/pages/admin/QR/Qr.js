@@ -33,33 +33,27 @@ export function Qr() {
   return (
     <div className='Qr'>
 
-<div className='QrImage' >
-    <QRCode
-    size={400}
-    bgColor= '#F4D529' 
-    fgColor= "#252A37"
-    level='L'
-    
-    value={inputValue}
-    
+    <div className='QrImage' >
+        <QRCode
+        size={400}
+        bgColor= '#F4D529' 
+        fgColor= "#252A37"
+        level='L'
+        
+        value={inputValue}
+        
 
-    id="QRCode"
-    />
-</div>
+        id="QRCode"
+        />
+    </div>
 
     <Input  focus placeholder="Ingresa la URL del taxi" onChange={(e)=>setInputValue(e.target.value)}></Input>
-    
-      
-     
-       
-      
-
     <Button animated onClick={donwloadQr} value="Download">
+
     <Button.Content visible> Descargar </Button.Content>
     <Button.Content hidden>
     <Icon name='download' />
-    </Button.Content>
-       
+    </Button.Content>      
       
     </Button>
 

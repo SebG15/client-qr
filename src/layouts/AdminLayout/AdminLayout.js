@@ -20,9 +20,7 @@ export function AdminLayout(props) {
           {children}
         </div>
 
-        </div>
-
-       
+        </div>      
       
     </div>
   );

@@ -19,7 +19,7 @@ const isCurrentPath = (path) =>{
             Usuarios
         </Menu.Item>
 
-        <Menu.Item as={Link} to ="/admin/qr" active={isCurrentPath("/admin/menu")}> 
+        <Menu.Item as={Link} to ="/admin/qr" active={isCurrentPath("/admin/qr")}> 
             <Icon name='qrcode'/>
             Qr
         </Menu.Item>

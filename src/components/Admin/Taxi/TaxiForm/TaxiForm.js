@@ -16,9 +16,9 @@ const taxiContoller  = new Taxi();
 export  function TaxiForm(props) {
 
   
-  const notify = () => toast.success("Exitoooooo",{
+  const notify = () => toast.error("Asegurese de que el taxi no haya sido creado y de subir una foto",{
     position: "top-center",
-    autoClose: 3000,
+    autoClose: 5000,
     pauseOnHover: false,
 })
   const{onClose, onReload, taxi} = props
@@ -51,7 +51,10 @@ export  function TaxiForm(props) {
         
         
       } catch (error) {
+        notify()
         console.error(error)
+        
+        
       }
     }
   })

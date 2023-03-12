@@ -1,8 +1,8 @@
-const SERVER_IP = "localhost:5050";
+const SERVER_IP = "serverqr-production.up.railway.app"; //https://serverqr-production.up.railway.app/ link de railway
 
 export const ENV ={
-    BASE_PATH :`http://${SERVER_IP}`,
-    BASE_API : `http://${SERVER_IP}/api/v1`,
+    BASE_PATH :`https://${SERVER_IP}`,
+    BASE_API : `https://${SERVER_IP}/api/v1`,
     API_ROUTES : {
         REGISTER : "auth/register",
         LOGIN: "auth/login",

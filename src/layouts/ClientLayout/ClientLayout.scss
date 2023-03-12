@@ -7,8 +7,10 @@
     
 
     &__footer{
+        
         margin-top: 0px;
-        padding: 20px 0 10px 0;
+        padding: 10px 0 10px 0;
+        padding-right: 5%;
         border-top: 4px solid $primary-yellow;
 
         >.ui.container{

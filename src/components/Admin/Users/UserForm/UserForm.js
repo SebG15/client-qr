@@ -6,6 +6,8 @@ import {image} from "../../../../assets"
 import {useAuth} from "../../../../hooks"
 import {User} from "../../../../api"
 import {ENV} from "../../../../utils"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {initialValues,validationSchema} from "./UserForm.form"
 import "./UserForm.scss"
 
@@ -13,6 +15,11 @@ const userController = new User()
 
 export function UserForm(props) {
     const {close, onReload, user} = props;
+    const notify = () => toast.error("No se puede crear el usuario.",{
+        position: "top-center",
+        autoClose: 3000,
+        pauseOnHover: false,
+    })
     const {accessToken} = useAuth();
     
 
@@ -32,6 +39,7 @@ export function UserForm(props) {
                 close();
                 
             } catch (error) {
+                notify()
                 console.error(error)
             }
         }
@@ -103,7 +111,9 @@ export function UserForm(props) {
         <Form.Button  color="yellow" type= "submit" fluid loading={formik.isSubmitting} >
                {user? "Actualizar Usuario": "Crear Usuario"}
             </Form.Button>
+            <ToastContainer/>
     </Form>
+    
   )
 }
 
